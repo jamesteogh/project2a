@@ -1,10 +1,11 @@
 const mongoose = require('mongoose')
 const express = require('express');
+const methodOverride = require('method-override');
 const journalController = require('./controllers/journalController')
 const dotenv = require('dotenv')
 
-
 const app = express();
+app.use(express.json());
 const port = 3000;
 
 // Link to database
@@ -12,45 +13,36 @@ dotenv.config({ path: './config.env' });
 const DB = process.env.DATABASE.replace('<PASSWORD>', process.env.DATABASE_PASSWORD);
 mongoose.connect(DB).then(() => { console.log('DB connection successful!') });
 
-
-
-// const testNotes = new Notes({
-//   title: 'Today is my birtday',
-//   details: 'So glad to be celebrating with my loved ones'
-// })
-
-// testNotes.save().then(doc => {
-//   console.log(doc);
-// }).catch(err => {
-//   console.log('ERROR', err)
-// })
-
-// tell express which template to use
 app.set('view engine', 'ejs')
 
-// app.get('/', (req, res) => {
-//   res.status(200).send('Welcome to Journal!')
-// })
+app.use(express.urlencoded({extended: true}));
+
+app.use(methodOverride('_method'));
+
 
 // List all notes
-// app.get('/notes', (req,res) => (
-//   res.json(Notes)
-// ))
-
 app.get('/notes', journalController.listNotes)
-// Create Notes
-// app.post('/', (req, res) => {
-//   res.status(200).send('Welcome to Journal!')
-// })
-// // Edit Note
-// app.patch('/:id', (req, res) => {
-//   res.status(200).send('Welcome to Journal!')
-// })
-// // Delete Note
-// app.delete('/:id', (req, res) => {
-//   res.status(200).send('Welcome to Journal!')
-// })
+// To display form to create new note
+app.get('/notes/new', journalController.createNoteForm)
+// Show Note
+app.get('/notes/:id', journalController.showNote)
+// Create action
+app.post('/notes', journalController.createNote)
 
+// // Edit Note
+app.patch('/:id', journalController.updateNote)
+
+// // Delete Note
+app.delete('/:id', journalController.deleteNote)
+
+// views
+// app.get('/hello', journalController.overview)
+
+app.get('/tour', (req, res) => {
+  res.status(200).render('show', {
+    title: 'Show one note'
+  });
+})
 
 app.listen(port, () => {
   console.log(`App running on port ${port}...`)
