@@ -3,21 +3,22 @@
 
     <div class="container">
         <h2><%= eachTitle %></h2>
-        <!-- ejs input -->
         <% notes.forEach(p => { %>
-        <div class="card my-3">
-            <div class="card-body">
-                <a href="http://localhost:3000/notes/<%= p._id %>"><h5 class="card-title"><%= p.title %></h5></a>
-                <!-- <p class="card-text">Date</p> -->
-                <p class="card-text"><%= p.details %></p>
-                <a href="http://localhost:3000/notes/<%= p._id %>/edit" class="btn btn-primary">Edit</a>
-                <a href="http://localhost:3000/notes/<%= p._id %>" class="btn btn-danger">Delete</a>
-            </div>
-        </div>
+            <form method="POST" action="/notes/<%= p._id %>?_method=DELETE" class="form">
+                <!-- ejs input -->
+                <div class="card my-3">
+                    <div class="card-body">
+                        <a href="/notes/<%= p._id %>"><h5 class="card-title"><%= p.title %></h5></a>
+                        <!-- <p class="card-text">Date</p> -->
+                        <p class="card-text"><%= p.details %></p>
+                        <a href="/notes/<%= p._id %>/edit" class="btn btn-primary">Edit</a>
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                        
+                    </div>
+                </div>
+            </form>
         <% }) %>   
 
     </div>
-
-
 
     <%- include('partials/footer'); -%>

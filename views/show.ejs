@@ -3,16 +3,17 @@
 <div class="container">
   <h2>Your Note</h2>
   <!-- ejs input -->
- 
-  <div class="card my-3">
-      <div class="card-body">
-          <h5 class="card-title"><%= note.title %></h5>
-          <!-- <p class="card-text">Date</p> -->
-          <p class="card-text"><%= note.details %></p>
-          <a href="#" class="btn btn-primary">Edit</a>
-          <a href="#" class="btn btn-danger">Delete</a>
-      </div>
-  </div>
+  <form method="POST" action="/notes/<%= note._id %>?_method=DELETE" class="form">
+    <div class="card my-3">
+        <div class="card-body">
+            <h5 class="card-title"><%= note.title %></h5>
+            <!-- <p class="card-text">Date</p> -->
+            <p class="card-text"><%= note.details %></p>
+            <a href="/notes/<%= note._id %>/edit" class="btn btn-primary">Edit</a>
+            <button type="submit" class="btn btn-danger">Delete</button>
+        </div>
+    </div>
+  </form>
  
 
 </div>

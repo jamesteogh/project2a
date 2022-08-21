@@ -64,23 +64,26 @@ const controller = {
 
   updateNote: async (req, res) => {
     try {
-      const note = await Notes.updateOne(req.params.id, req.body, {
-        new: true,
-        runValidators: true
-      }); 
-      res.status(200).json({
-        status: 'success',
-        data: {
+      const note = await Notes.findByIdAndUpdate(req.params.id, 
+        {
+        title: req.body.title,
+        details: req.body.details
+        }, 
+        {
+          new: true,
+          runValidators: true
+        }); 
+        console.log("ID: " + req.params.id + " ")
+        console.log("body" + req.body)
+        res.render('show', {
           note
-        }
-      })
-
+        });
     } catch (err) {
-      res.status(404).json({
-        status: 'fail',
-        message: err
-      })
-    }
+        res.status(404).json({
+          status: 'fail',
+          message: err
+        })
+      }
   },
 
   deleteNote: async (req, res) => {

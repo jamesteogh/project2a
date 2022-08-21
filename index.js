@@ -32,7 +32,7 @@ app.post('/notes', journalController.createNote)
 // To display form to edit note
 app.get('/notes/:id/edit', journalController.editNoteForm)
 // // Edit Note
-app.patch('notes/:id', journalController.updateNote)
+app.put('notes/:id', journalController.updateNote)
 
 // // Delete Note
 app.delete('/notes/:id', journalController.deleteNote)
