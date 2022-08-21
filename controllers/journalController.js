@@ -96,38 +96,3 @@ const controller = {
 
 module.exports = controller
 
-  // createNote: async (req, res) => {
-  //   const data = req.body
-  //   // validation
-  //   if (!data.title) {
-  //     res.send('note is not set')
-  //     return
-  //   }
-  //   // Add new note to database
-  //   try {
-  //     const note = await Notes.insertOne({title: data.title, details: data.details});
-  //     //
-  //   } catch(err) {
-  //     res.send('failed to create pokemon')
-  //     console.log("Title: " + data.title + " details: " + data.details)
-  //     return
-  //   }
-  //   // redirect to list notes page
-  //   res.redirect('/notes')
-  // },
-  // showNote: async (req, res) => {
-  //   try{
-  //     const note = await Notes.findById(req.params.id);
-  //     // Notes.findOne({ _id: req.params.id})
-
-  //     res.status(200).json({
-  //       status: 'success',
-  //       note
-  //     })
-  //   } catch (err) {
-  //     res.status(404).json({
-  //       status: 'fail',
-  //       message: err
-  //     })
-  //   }
-  // },

@@ -37,15 +37,6 @@ app.put('/notes/:id', journalController.updateNote)
 // // Delete Note
 app.delete('/notes/:id', journalController.deleteNote)
 
-// views
-// app.get('/hello', journalController.overview)
-
-// app.get('/notes/:id', (req, res) => {
-//   res.status(200).render('show', {
-//     title: 'Show one note'
-//   });
-// })
-
 app.listen(port, () => {
   console.log(`App running on port ${port}...`)
 })
