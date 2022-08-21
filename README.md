@@ -2,35 +2,36 @@
 
 ## Key Features
 
-- Render out all tours in a single page
-- View details of a particular tour
+- Render out all notes in a single page
+- View details of a note
+- Delete and edit each note
+- Create new note
 
-## Book a Tour
+## Create a Note
 
-- Login to the site
-- Search for tours that you want to book
-- Book a tour
-- Manage booking, check users' reviews and rating
-- Update username, email, and password
+- Click on create new note
+- Enter both Title and Details
+- Click on "add note"
+- Note will be rendered on to the list of notes
 
-## Manage Your Booking
+## Update Your Note
 
-- Check the tour you have booked in "Manage Booking" page in your user settings. You'll be automatically redirected to this
-  page after you have completed the booking. (Under construction)
+- Check for the note under "All Notes" list, click on "edit" button to update your note
+- Once directed to the edit form page, input details in the title and details field. Submit changes to update note
 
-## Update Your Profile
+## Delete Your Note
 
-- You can update your own username, profile photo, email and password.
+- You can delete note by clicking on "delete" button
 
 ## Git
 
 To download this Tour booking files, you can paste this command into your command line or terminal
 
-    git clone https://github.com/jamesteogh/Project-2a
+    git clone git@github.com:jamesteogh/project2a.git
 
 or you can use paste this github links pages into your browser
 
-    https://jamesteo.herokuapp.com/
+    https://note-taking-app-project2a.herokuapp.com/
 
 ## Build With
 
@@ -46,19 +47,9 @@ or you can use paste this github links pages into your browser
 
 ---
 
-- Incorporation of map
-- Review and rating
-  - Allow user to add a review directly at the website after they have taken a tour
-- Booking
-  - Prevent duplicate bookings after user has booked that exact tour, implement favourite tours
-- Advanced authentication features
-  - Signup, confirm user email, login with refresh token, two-factor authentication
-
-## Challenges Faced
-
 - Authentication and Authorization
   - Login and logout
-- Tour
-  - Manage booking, check users' reviews and rating
-- User profile
-  - Update username, email, and password
+- Advanced authentication features
+  - Signup, confirm user email, login with refresh token, two-factor authentication
+- Create Note
+  - To include day and time for which the user create/amend note
