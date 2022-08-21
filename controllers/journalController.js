@@ -77,21 +77,17 @@ const controller = {
           note
         });
     } catch (err) {
-        res.status(404).json({
-          status: 'fail',
-          message: err
-        })
-      }
+      res.send('Failed to update note. Please input both title and details section')
+      return
+    }
   },
 
   deleteNote: async (req, res) => {
     try {
       await Notes.deleteOne({ _id: req.params.id});
     } catch (err) {
-      res.status(400).json({
-        status: 'fail',
-        message: 'Invalid data sent!'
-      })
+      res.send('Invalid data sent!')
+      return
     }
     res.redirect('/notes')
   }
