@@ -7,6 +7,7 @@ const controller = {
     //   eachTitle : "Hello"
     // })
       const notes = await Notes.find();
+      
 
       res.status(200).render('index', {
         eachTitle : "Your Notes",
@@ -22,10 +23,11 @@ const controller = {
 
   showNote: async (req, res) => {
     try{
-      const note = await Notes.findById(req.params.id);
+      const note = await Notes.findOne({ _id: req.params.id});
       // Notes.findOne({ _id: req.params.id})
+      console.log(note)
 
-      res.status(200).json({
+      res.status(200).render('show', {
         status: 'success',
         note
       })
@@ -53,9 +55,16 @@ const controller = {
     res.redirect('/notes')
   },
 
+  editNoteForm: async (req, res) => {
+    const note = await Notes.findOne({ _id: req.params.id});
+    await res.render('edit', {
+      note
+    })
+  },
+
   updateNote: async (req, res) => {
     try {
-      const note = await Notes.findByIdAndUpdate(req.params.id, req.body, {
+      const note = await Notes.updateOne(req.params.id, req.body, {
         new: true,
         runValidators: true
       }); 
@@ -76,19 +85,15 @@ const controller = {
 
   deleteNote: async (req, res) => {
     try {
-      await Notes.findByIdAndDelete(req.params.id);
-
-      res.status(204).json({
-        status: 'success',
-        data: null
-      });
+      await Notes.deleteOne({ _id: req.params.id});
     } catch (err) {
       res.status(400).json({
         status: 'fail',
         message: 'Invalid data sent!'
       })
     }
-  },
+    res.redirect('/notes')
+  }
 
 }
 
@@ -112,4 +117,20 @@ module.exports = controller
   //   }
   //   // redirect to list notes page
   //   res.redirect('/notes')
+  // },
+  // showNote: async (req, res) => {
+  //   try{
+  //     const note = await Notes.findById(req.params.id);
+  //     // Notes.findOne({ _id: req.params.id})
+
+  //     res.status(200).json({
+  //       status: 'success',
+  //       note
+  //     })
+  //   } catch (err) {
+  //     res.status(404).json({
+  //       status: 'fail',
+  //       message: err
+  //     })
+  //   }
   // },

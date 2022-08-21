@@ -29,20 +29,22 @@ app.get('/notes/:id', journalController.showNote)
 // Create action
 app.post('/notes', journalController.createNote)
 
+// To display form to edit note
+app.get('/notes/:id/edit', journalController.editNoteForm)
 // // Edit Note
-app.patch('/:id', journalController.updateNote)
+app.patch('notes/:id', journalController.updateNote)
 
 // // Delete Note
-app.delete('/:id', journalController.deleteNote)
+app.delete('/notes/:id', journalController.deleteNote)
 
 // views
 // app.get('/hello', journalController.overview)
 
-app.get('/tour', (req, res) => {
-  res.status(200).render('show', {
-    title: 'Show one note'
-  });
-})
+// app.get('/notes/:id', (req, res) => {
+//   res.status(200).render('show', {
+//     title: 'Show one note'
+//   });
+// })
 
 app.listen(port, () => {
   console.log(`App running on port ${port}...`)

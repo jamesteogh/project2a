@@ -1,49 +1,20 @@
 <%- include('partials/header'); -%>
 
-  <div class="container">
-    <h2>Your Notes</h2>
-    <div class="card my-3">
+<div class="container">
+  <h2>Your Note</h2>
+  <!-- ejs input -->
+ 
+  <div class="card my-3">
       <div class="card-body">
-        <h5 class="card-title">Title</h5>
-        <p class="card-text">Date</p>
-        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-          ut labore et dolore magna aliqua.</p>
-        <a href="#" class="btn btn-primary">Edit</a>
-        <a href="#" class="btn btn-danger">Delete</a>
+          <h5 class="card-title"><%= note.title %></h5>
+          <!-- <p class="card-text">Date</p> -->
+          <p class="card-text"><%= note.details %></p>
+          <a href="#" class="btn btn-primary">Edit</a>
+          <a href="#" class="btn btn-danger">Delete</a>
       </div>
-    </div>
-    <div class="card my-3">
-      <div class="card-body">
-        <h5 class="card-title">Title</h5>
-        <p class="card-text">Date</p>
-        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-          ut labore et dolore magna aliqua.</p>
-        <a href="#" class="btn btn-primary">Edit</a>
-        <a href="#" class="btn btn-danger">Delete</a>
-      </div>
-    </div>
   </div>
+ 
 
-  <!-- <form method="POST" action="/pokemon/<%= idNum %>?_method=PUT">
-  <input type="text" name="pokemon_name" />
-  <button type="submit">Update <%= p.name %></button>
-</form>
-<form method="POST" action="/pokemon/<%= idNum %>?_method=DELETE">
-  <button type="submit">Delete <%= p.name %></button>
-</form>
-
-        <% if (errMsg !== '') { %>
-            <div class="error">
-                <p>You have an error: <%= errMsg %> </p>
-            </div>
-        <% } else { %> 
-        
-            <h1><%= p.name.charAt(0).toUpperCase() + p.name.slice(1) %></h1>
-
-            <figure>
-                <img src="<%= p.img %>.jpg" />
-            </figure>
-
-        <% } %>  -->
+</div>
 
   <%- include('partials/footer'); -%>
