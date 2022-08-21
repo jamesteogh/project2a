@@ -73,8 +73,6 @@ const controller = {
           new: true,
           runValidators: true
         }); 
-        console.log("ID: " + req.params.id + " ")
-        console.log("body" + req.body)
         res.render('show', {
           note
         });
