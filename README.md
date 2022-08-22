@@ -25,13 +25,13 @@
 
 ## Git
 
-To download this Tour booking files, you can paste this command into your command line or terminal
+To download this note taking files, you can paste this command into your command line or terminal
 
     git clone git@github.com:jamesteogh/project2a.git
 
 or you can use paste this github links pages into your browser
 
-    https://note-taking-app-project2a.herokuapp.com/
+    https://note-taking-app-project2a.herokuapp.com/notes
 
 ## Build With
 
@@ -45,11 +45,11 @@ or you can use paste this github links pages into your browser
 
 ## Things To Improve On If I Have More Time
 
----
-
 - Authentication and Authorization
   - Login and logout
 - Advanced authentication features
   - Signup, confirm user email, login with refresh token, two-factor authentication
 - Create Note
   - To include day and time for which the user create/amend note
+- Sorting the notes so that the latest note that was input will appear at the top
+- Include date and time that the note is created
