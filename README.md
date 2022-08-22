@@ -52,4 +52,3 @@ or you can use paste this github links pages into your browser
 - Create Note
   - To include day and time for which the user create/amend note
 - Sorting the notes so that the latest note that was input will appear at the top
-- Include date and time that the note is created
